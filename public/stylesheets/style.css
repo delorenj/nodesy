@@ -1,8 +1,32 @@
+html, body {
+	background-color: #eee;
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	padding-top: 40px; 
+}
+.container {
+	width: 300px;
 }
 
-a {
-  color: #00B7FF;
+/* The white background content wrapper */
+.container > .content {
+	background-color: #fff;
+	padding: 20px;
+	margin: 0 -20px; 
+	-webkit-border-radius: 10px 10px 10px 10px;
+	   -moz-border-radius: 10px 10px 10px 10px;
+	        border-radius: 10px 10px 10px 10px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+	   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+	        box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+.login-form {
+	margin-left: 65px;
+}
+
+legend {
+	margin-right: -50px;
+	font-weight: bold;
+	color: #404040;
 }

@@ -1,2 +1,15 @@
-h1= title
-p Welcome to #{title}
+body
+	div.container
+		img(src="images/logo.png")		
+		div.content
+			div.row
+				div.login-form
+					h2 Login
+					form(method='POST')
+						fieldset
+							div.clearfix
+								input(type="text", placeholder="Username")
+							div.clearfix
+								input(type="password", placeholder="Password")
+							button.btn.btn-primary(type="submit")
+								| Sign In
