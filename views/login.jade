@@ -1,0 +1,19 @@
+body
+	div.container
+		- if (message)
+			p= message
+		img(src="images/logo.png")		
+		div.content
+			div.row
+				div.login-form
+					h2 Login
+					form(action='/login', method='POST')
+						fieldset
+							div.clearfix
+								input(type="text", placeholder="Username", name="username")
+							div.clearfix
+								input(type="password", placeholder="Password", name="password")
+							button.btn.btn-primary(type="submit")
+								| Sign In
+					p.small
+						| Hint: fyea!
