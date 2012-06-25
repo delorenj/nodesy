@@ -80,6 +80,7 @@ var app = module.exports = express.createServer();
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
+  app.set('view options', { layout: false, pretty: true });    
   app.use(express.cookieParser());  
   app.use(express.bodyParser());
   app.use(express.logger());
@@ -101,26 +102,14 @@ app.configure('production', function(){
 
 // Routes
 
-app.get('/', function(req, res){
-  res.render('index', { user: req.user });
-});
-
-app.get('/account', ensureAuthenticated, function(req, res){
-  res.render('account', { user: req.user });
+app.get('/', ensureAuthenticated, function(req, res){
+  res.render('index', { title: "ElleOL Dashboard", user: req.user });
 });
 
 app.get('/login', function(req, res){
-  res.render('login', { title: "ElleOL Admin", user: req.user, message: req.flash('error') });
+  res.render('login', { title: "ElleOL Login", user: req.user, message: req.flash('error') });
 });
 
-
-// POST /login
-//   Use passport.authenticate() as route middleware to authenticate the
-//   request.  If authentication fails, the user will be redirected back to the
-//   login page.  Otherwise, the primary route function function will be called,
-//   which, in this example, will redirect the user to the home page.
-//
-//   curl -v -d "username=bob&password=secret" http://127.0.0.1:3000/login
 app.post('/login', 
   passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }),
   function(req, res) {
@@ -128,8 +117,8 @@ app.post('/login',
   }
 );
 
-
 app.get('/logout', function(req, res){
+  console.log("Logging out")
   req.logout();
   res.redirect('/');
 });
