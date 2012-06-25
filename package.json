@@ -1,0 +1,13 @@
+{
+    "name": "elleoladmin"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "express": "2.5.10"
+    , "jade": ">= 0.0.1"
+  }
+  , "engines": {
+    "node": ">=0.4.7 <0.7.0",
+    "npm": ">=1.0.0"
+  }
+}
