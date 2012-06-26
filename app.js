@@ -3,16 +3,22 @@
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes')
-  , passport = require('passport')
-  , util = require('util')
-  , LocalStrategy = require('passport-local').Strategy;
+var express = require('express');
+var dashboard = require('./routes/dashboard');
+var passport = require('passport');
+var util = require('util');
+var path = require('path');
+var mongoose = require('mongoose');
+var LocalStrategy = require('passport-local').Strategy;
 
 var users = [
     { id: 1, username: 'carrie', password: 'fyea', email: 'carrievitale@gmail.com' }
   , { id: 2, username: 'delorenj', password: 'test', email: 'jaradd@gmail.com' }
 ];
+
+var etsy_key = "dz4qniigcyvka64m92sulmx4";
+var etsy_secret = "2hh5lnlc8l";
+
 
 function findById(id, fn) {
   var idx = id - 1;
@@ -94,17 +100,18 @@ app.configure(function(){
 
 app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+  mongoose.connect("mongodb://localhost/nodesy");
 });
 
 app.configure('production', function(){
   app.use(express.errorHandler());
+  mongoose.connect("mongodb://delorenj:" + process.env.DBPASS + "@flame.mongohq.com:27059/app5538702");
 });
+
 
 // Routes
 
-app.get('/', ensureAuthenticated, function(req, res){
-  res.render('index', { title: "ElleOL Dashboard", user: req.user });
-});
+app.get('/', ensureAuthenticated, dashboard.home);
 
 app.get('/login', function(req, res){
   res.render('login', { title: "ElleOL Login", user: req.user, message: req.flash('error') });
