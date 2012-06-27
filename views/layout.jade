@@ -1,6 +1,32 @@
 !!!
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body!= body
+	head
+		title= title
+		block stylesheets
+			link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+			link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.min.css')
+			link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		div.navbar.navbar-fixed-top
+			div.navbar-inner
+				div.container
+					a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.brand(href="#") ElleOL
+					div.nav-collapse
+						ul.nav
+							li.active
+								a(href="/") Home
+							li
+								a(href="/orders") Orders
+							li
+								a(href="/stats") Stats
+						ul.nav.pull-right
+							li
+								a(href="/logout") Logout
+		div.container
+			block content
+				h1 This view is not yet implemented
+				p Stay tuned! =)
