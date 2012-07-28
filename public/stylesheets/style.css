@@ -1,6 +1,77 @@
 html, body {
-	background-color: #eee;
+    background-color: #eee;
 }
 body {
-	padding-top: 40px; 
+    padding-top: 40px; 
 }
+
+.content {
+    margin-top: 40px;   
+}
+
+ul.cards {
+    display: inline;
+}
+
+ul.cards li {
+    list-style: none;
+    float:left;
+    margin-right: 40px;
+}
+
+ul.cards li:last-child {
+    margin: 0;
+}
+
+.front, .back {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);    
+}
+
+.flip {
+  -webkit-perspective: 800;
+  width: 240px;
+  height: 340px;
+  position: relative;
+  margin: 50px auto;
+}
+.flip .card.flipped {
+  -webkit-transform: rotatey(180deg);
+  -moz-transform: rotatey(180deg);  
+}
+.flip .card {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;  
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+}
+.flip .card .face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden ;
+  -moz-backface-visibility: hidden ;
+  z-index: 2;
+  font-family: Georgia;
+  font-size: 3em;
+  text-align: center;
+  line-height: 200px;
+}
+.flip .card .front {
+  position: absolute;
+  z-index: 1;
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+.flip .card .back {
+  -webkit-transform: rotatey(180deg);
+  -moz-transform: rotatey(180deg);
+  background: blue;
+  background: white;
+  color: black;
+  cursor: pointer;
+}​

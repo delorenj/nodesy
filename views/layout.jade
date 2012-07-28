@@ -26,7 +26,10 @@ html
 						ul.nav.pull-right
 							li
 								a(href="/logout") Logout
-		div.container
+		div.container.content
 			block content
 				h1 This view is not yet implemented
 				p Stay tuned! =)
+	block javascripts
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
+		script(src='/javascripts/bootstrap.min.js')

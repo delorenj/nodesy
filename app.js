@@ -8,17 +8,18 @@ var dashboard = require('./routes/dashboard');
 var passport = require('passport');
 var util = require('util');
 var path = require('path');
+var io = require('socket.io');
 var mongoose = require('mongoose');
 var LocalStrategy = require('passport-local').Strategy;
+var Etsy = require('./lib/etsy').Etsy;
 
 var users = [
     { id: 1, username: 'carrie', password: 'fyea', email: 'carrievitale@gmail.com' }
   , { id: 2, username: 'delorenj', password: 'test', email: 'jaradd@gmail.com' }
 ];
 
-var etsy_key = "dz4qniigcyvka64m92sulmx4";
-var etsy_secret = "2hh5lnlc8l";
-
+var API_KEY = process.env.OAUTH_CONSUMER_KEY;
+var etsy = new Etsy(API_KEY);
 
 function findById(id, fn) {
   var idx = id - 1;
@@ -78,8 +79,9 @@ passport.use(new LocalStrategy(
   }
 ));
 
-
+var port = process.env.PORT || 5000;
 var app = module.exports = express.createServer();
+io.listen(app);
 
 // Configuration
 
@@ -111,7 +113,26 @@ app.configure('production', function(){
 
 // Routes
 
-app.get('/', ensureAuthenticated, dashboard.home);
+//app.get('/', ensureAuthenticated, dashboard.home);
+app.get('/', dashboard.home);
+
+app.get('/test', function(req, res) {
+  etsy.findAllListingActive(
+    {
+      keywords: 'blue shawl',
+      limit: 10,
+      fields: 'title',
+      includes: 'MainImage(url_75x75)'
+    },
+    function(err, data) {
+      if(err)
+      {
+        throw err;
+      }
+      console.log(data);
+    }
+  );
+})
 
 app.get('/login', function(req, res){
   res.render('login', { title: "ElleOL Login", user: req.user, message: req.flash('error') });
@@ -131,8 +152,6 @@ app.get('/logout', function(req, res){
 });
 
 
-var port = process.env.PORT || 5000;
-
 app.listen(port, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
@@ -147,3 +166,5 @@ function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/login')
 }
+
+
