@@ -363,49 +363,13 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "package.json",
-			"settings":
-			{
-				"buffer_size": 364,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/methods.json",
-			"settings":
-			{
-				"buffer_size": 58582,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/etsy.js",
-			"settings":
-			{
-				"buffer_size": 12529,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app.js",
-			"settings":
-			{
-				"buffer_size": 4932,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "Packages/JSHint/JSHint.sublime-build",
 	"command_palette":
 	{
-		"height": 160.0,
+		"height": 375.0,
 		"selected_items":
 		[
-			[
-				"install",
-				"Package Control: Install Package"
-			],
 			[
 				"sccl",
 				"SymfonyCommander cache:clear (dev)"
@@ -413,6 +377,10 @@
 			[
 				"ini",
 				"Set Syntax: INI"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
 			],
 			[
 				"instal",
@@ -512,10 +480,6 @@
 	},
 	"file_history":
 	[
-		"/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf",
-		"/Applications/MAMP/htdocs/sciart/application/config/database.php",
-		"/Applications/MAMP/conf/apache/httpd.conf",
-		"/Applications/MAMP/htdocs/nodesy/.gitignore",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/UserRepository.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/header.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/Partials/header.html.twig",
@@ -552,6 +516,8 @@
 		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/public/js/plugins/jquery.tagsinput.js",
 		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/public/js/twitter-bootstrap/bootstrap-alert.js",
 		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/public/js/jquery.min.js",
+		"/Applications/MAMP/conf/apache/httpd.conf",
+		"/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf",
 		"/Applications/MAMP/conf/apache/extra/httpd-ssl.conf",
 		"/Applications/MAMP/htdocs/groovecrowd/web/bundles/gcdashboard/js/PackageSelect/gc_package_select.js",
 		"/Applications/MAMP/htdocs/groovecrowd/app/config/config_dev.yml",
@@ -639,7 +605,9 @@
 		"/Applications/MAMP/bin/php/php5.3.6/conf/php.ini",
 		"/Applications/MAMP/htdocs/groovecrowd/web/js/gc_project_brief_gallery.js",
 		"/Applications/MAMP/htdocs/groovecrowd/web/js/gc_payment.js",
-		"/Applications/MAMP/htdocs/groovecrowd/web/js/underscore.js"
+		"/Applications/MAMP/htdocs/groovecrowd/web/js/underscore.js",
+		"/Applications/MAMP/htdocs/groovecrowd/web/js/json2.js",
+		"/Applications/MAMP/htdocs/groovecrowd/web/js/yoxview/json2.js"
 	],
 	"find":
 	{
@@ -679,9 +647,6 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"override",
-			"this._client",
-			"listen",
 			"path\\(",
 			"path(",
 			"type",
@@ -806,7 +771,10 @@
 			"height",
 			"7FAA",
 			"inline",
-			"button_image_url"
+			"button_image_url",
+			"uploadP",
+			"images",
+			"gaufrette"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -874,120 +842,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "package.json",
-					"settings":
-					{
-						"buffer_size": 364,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								262,
-								262
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "lib/methods.json",
-					"settings":
-					{
-						"buffer_size": 58582,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								441,
-								441
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "lib/etsy.js",
-					"settings":
-					{
-						"buffer_size": 12529,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3390,
-								3390
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 4031.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app.js",
-					"settings":
-					{
-						"buffer_size": 4932,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3648,
-								3648
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1633.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
